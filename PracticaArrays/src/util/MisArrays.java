@@ -9,14 +9,14 @@ public abstract class MisArrays {
 	 * @return sumas / notas.length
 	 */
 	public static float mediaNotas(int[] notas) {
-        float suma = 0;
-        for (int nota : notas) {
-            suma += nota;
-            if (nota < 0 || nota > 10) {
+        float suma = 1;
+        for (int i = 0; i < notas.length; i++) {
+            suma += notas[i];
+            if (notas[i] < 0 || notas[i] > 10) {
                 throw new IllegalArgumentException("Las notas deben estar entre 0 y 10.");
             }
         }
-        return suma / notas.length;
+        return suma / notas.length;   
     }
 	
 	/**
@@ -27,12 +27,12 @@ public abstract class MisArrays {
 	public static float medianaNotas(int[] notas) {
         Arrays.sort(notas);
         int n = notas.length;
-        for (int nota : notas) {
-        	if (nota < 0 || nota > 10) {
+        for (int i = 0; i < notas.length; i++) {
+        	if (notas[i] < 0 || notas[i] > 10) {
         		throw new IllegalArgumentException("Las notas deben estar entre 0 y 10.");
             }
         }
-        for (int nota : notas) {
+        for (int i = 1; i < notas.length; i++) {
         	if (n % 2 == 0) {
             	return (notas[n / 2 - 1] + notas[n / 2]) / 2;
         	} else {
@@ -49,11 +49,11 @@ public abstract class MisArrays {
 	 */
 	public static int maximaNota(int[] notas) {
 	        int max = 0;
-	        for (int nota : notas) {
-	            if (nota > max) {
-	                max = nota;
+	        for (int i = 0; i < notas.length; i++) {
+	            if (notas[i] > max) {
+	                max = notas[i];
 	            }
-	            if (nota < 0 || nota > 10) {
+	            if (notas[i] < 0 || notas[i] > 10) {
 	                throw new IllegalArgumentException("Las notas deben estar entre 0 y 10.");
 	            }
 	        }
@@ -67,14 +67,14 @@ public abstract class MisArrays {
 	 */
 	public static int minimaNota(int[] notas) {
 	        int min = 0;
-	        for (int nota : notas) {
-	            if (nota < min) {
-	                min = nota;
+	        for (int i = 0; i < notas.length; i++) {
+	            if (notas[i] < min) {
+	                min = notas[i];
 	            }
-	            if (nota < 0 || nota > 10) {
+	            if (notas[i] < 0 || notas[i] > 10) {
 	                throw new IllegalArgumentException("Las notas deben estar entre 0 y 10.");
 	            }
 	        }
 	        return min;
-	    }
+	}
 }
